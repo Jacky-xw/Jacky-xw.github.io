@@ -1,205 +1,98 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8">
     <title>Title</title>
-    <meta name="Description" content="网页介绍" />
-    <meta name="Keywords" content="关键词SEO优化" />
+    <meta name="Keywords" content="关键词">
+    <meta name="Description" content="网页介绍">
     <style>
-        *{margin: 0; padding: 0;}/* 写作业才用 */
-        li{list-style: none;}
-        a{color: inherit; text-decoration: none;}
-        body{overflow: hidden;}
-        #box{
-            position: relative;
-            width: 658px;
-            height: 411px;
-            margin: 100px auto 0;
-            border-radius: 10px;
-            background-color: #e0e0e0;
-            overflow: hidden;
+      *{margin: 0; padding: 0;}
+      :root{
+        height: 100%;
+      }
+      body{
+        position: relative;
+        height: 100%;
+        perspective: 800px;
+      }
+      #box{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        animation: box 5s linear infinite;
+        user-select:none;
+      }
+      @keyframes box{
+        from{
+          transform: rotateY(0deg) rotateX(0deg);
         }
-        #banner{
-            position: absolute;
-            left: 0;
-            width: 600%;
-            overflow: hidden;
+        to{
+          transform: rotateY(360deg) rotateX(360deg);
         }
-        .item{
-            float: left;
-            width: 658px;
-            height: 411px;
-        }
-        .tablist{
-            display: flex;
-            justify-content: space-around;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            z-index: 100;
-            width: 110px;
-            height: 17px;
-            margin-left: -55px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .tablist .tab{
-            float: left;
-            width: 15px;
-            height: 15px;
-            border: 1px solid #eff;
-            border-radius: 50%;
-            transition: background-color 1s;
-        }
-        .tablist .on{
-            background-color: #f60;
-        }
-        .banner-btn{
-            position: absolute;
-            top: 50%;
-            z-index: 20;
-            margin-top: -42px;
-            width: 64px;
-            height: 74px;
-            border-radius: 5px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            cursor: pointer;
-        }
-        .btn-left{
-            left: 0;
-            background-image: url("images/arrow_l.png");
-        }
-        .btn-right{
-            right: 0;
-            background-image: url("images/arrow_r.png");
-        }
+      }
+      #box li{
+        position: absolute;
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+      }
+      .top{
+        top: -100px;
+        background: #348F50;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #56B4D3, #348F50);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #56B4D3, #348F50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: rotateX(90deg);
+      }
+      .bottom{
+        top: 100px;
+        background: #ff6e7f;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #bfe9ff, #ff6e7f);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #bfe9ff, #ff6e7f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: rotateX(-90deg);
+      }
+      .left{
+        left: -100px;
+        background: #77A1D3;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #E684AE, #79CBCA, #77A1D3);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #E684AE, #79CBCA, #77A1D3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: rotateY(90deg);
+      }
+      .right{
+        left: 100px;
+        background: #e65c00;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #F9D423, #e65c00);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: rotateY(-90deg);
+      }
+      .before{
+        background: #ec008c;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: translateZ(100px);
+      }
+      .after{
+        background: #BBD2C5;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        transform: translateZ(-100px);
+      }
     </style>
-</head>
-<body>
-    <div id="box">
-        <ul id="banner">
-            <li class="item"><img src="images/0.jpg" alt=""></li>
-            <li class="item"><img src="images/1.jpg" alt=""></li>
-            <li class="item"><img src="images/2.jpg" alt=""></li>
-            <li class="item"><img src="images/3.jpg" alt=""></li>
-            <li class="item"><img src="images/4.jpg" alt=""></li>
-            <li class="item"><img src="images/0.jpg" alt=""></li>
-        </ul>
-        <ul class="tablist">
-            <li class="tab on"></li>
-            <li class="tab"></li>
-            <li class="tab"></li>
-            <li class="tab"></li>
-            <li class="tab"></li>
-        </ul>
-        <div class="banner-btn btn-left"></div>
-        <div class="banner-btn btn-right"></div>
-    </div>
-    <script src="js/screenShot.js"></script>
-    <script src="js/Move.js"></script>
-    <script>
-        screenShot();
-        (function (){
-            
-            var oBox = document.getElementById("box"),
-                oBanner = document.getElementById("banner"),
-                aTab = oBox.querySelectorAll(".tablist .tab"),
-                oBtnLeft = oBox.getElementsByClassName("btn-left")[0],
-                oBtnRight = oBox.getElementsByClassName("btn-right")[0],
-                len = aTab.length,
-                index = 0,
-                BW = 658,
-                date = new Date(),
-                timer = null;
-
-            // 左按钮 - start
-            oBtnLeft.onclick = function () {
-                if (new Date() - date < 1000) return;
-                date = new Date();
-                aTab[index].className = "tab";
-                if (index === 0) {
-                    oBanner.style.left = len * -BW + "px";
-                    index = len;
-                }
-                index--;
-                /* if (index < 0) {
-                    oBanner.style.left = len * -BW + "px";
-                    index = len - 1;
-                } */
-                /* if (index < 0) {
-                    Move(oBanner, {
-                        left: len * -BW
-                    }, 0, null, null, function () {
-                        console.log("我是上面的回调函数");
-                    });
-                    index = len - 1;
-                } */ // 有问题
-                aTab[index].className += " on";
-                Move(oBanner, {
-                    left: index * -BW
-                }, 800, null, null, function () {
-                    console.log("我是下面的回调函数");
-                });
-            }
-            // 左按钮 - end
-
-            // 右按钮 - start
-            oBtnRight.onclick = function () {
-                if (new Date() - date < 1000) return;
-                date = new Date();
-                run();
-            }
-            // 右按钮 - end
-
-            // Tab分页器 - start
-            for (var i = 0; i < len; i++) {
-                (function (i){
-                    aTab[i].onclick = function () {
-                        if (new Date() - date < 1000) return;
-                        date = new Date();
-                        aTab[index].className = "tab";
-                        Move(oBanner, {
-                            left: index * -BW
-                        }, 800);
-                        index = i;
-                        Move(oBanner, {
-                            left: index * -BW
-                        }, 800);
-                        aTab[index].className += " on";
-                    };
-                }(i));
-            }
-            // Tab分页器 - end
-
-            // 自动轮播 - start
-            function run() {
-                aTab[index].className = "tab";
-                index++;
-                Move(oBanner, {
-                    left: index * -BW
-                }, 800, null, null, function () {
-                    if (index === len) {
-                        this.style.left = 0;
-                        index = 0;
-                    }
-                });
-                if (index < len) {
-                    aTab[index].className += " on";
-                } else{
-                    aTab[0].className += " on";
-                }
-            }
-            timer = setInterval(run, 3000);
-            oBox.onmouseover = function () {
-                clearInterval(timer);
-            };
-            oBox.onmouseout = function () {
-                timer = setInterval(run, 3000);
-            };
-            // 自动轮播 - end
-
-        }());
-    </script>
-</body>
+  </head>
+  <body>
+    <ul id="box">
+      <li class="top"></li>
+      <li class="bottom"></li>
+      <li class="left"></li>
+      <li class="right"></li>
+      <li class="before"></li>
+      <li class="after"></li>
+     </ul>
+  </body>
 </html>
