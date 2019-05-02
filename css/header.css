@@ -1,0 +1,13 @@
+@charset "utf-8";
+.header{
+    width: 100%;
+    height: 0.48rem;
+}
+.header .nav{
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    height: 0.48rem;
+    padding: 0.18rem 0.2rem 0;
+    background-color: #f66;
+}
