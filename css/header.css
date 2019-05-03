@@ -9,5 +9,15 @@
     width: 100%;
     height: 0.48rem;
     padding: 0.18rem 0.2rem 0;
-    background-color: #f66;
+}
+.nav li{
+    width: 0.35rem;
+    height: 0.35rem;
+    cursor: pointer;
+}
+.nav .icon{
+    background: url("../images/选项.png") no-repeat center bottom/0.31rem;
+}
+.nav .svg{
+    background: url("../images/home_icon.svg") no-repeat center/cover;
 }
