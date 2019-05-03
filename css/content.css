@@ -1,19 +1,20 @@
 @charset "utf-8";
 .content{
-    margin-top: 0.65rem;
+    margin-top: 65px;
     font-size: 0.16rem;
 }
 .content img{
     display: block;
-    width: 1.6rem;
+    width: 160px;
+    height: 56px;
     margin: auto;
 }
 .content .text{
     width: 95%;
-    height: 0.4rem;
-    margin: 0.3rem auto 0;
-    border: 0.01rem solid #dfe1e5;
-    border-radius: 0.2rem;
+    height: 40px;
+    margin: 30px auto 0;
+    border: 1px solid #dfe1e5;
+    border-radius: 20px;
     overflow: hidden;
 }
 .content .text:hover{
