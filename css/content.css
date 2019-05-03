@@ -22,17 +22,17 @@
     border-color: rgba(223,225,229,0);
 }
 .content .text input{
-    width: 94%;
+    width: 90%;
     height: 100%;
     padding: 0;
     border: none;
     outline: none;
-    font-size: 0.18rem;
+    font-size: 0.3rem;
     color: #666;
     text-indent: 0.2rem;
 }
 .content a{
-    width: 6%;
+    width: 10%;
     height: 100%;
-    background: #3b78e7 url("../images/放大镜.png") no-repeat 0.04rem center/70%;
+    background: #3b78e7 url("../images/放大镜.png") no-repeat center center;
 }
