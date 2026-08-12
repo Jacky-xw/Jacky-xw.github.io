@@ -1,0 +1,54 @@
+name: Unzip project
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Unzip project
+        run: |
+          mkdir -p extracted
+          unzip -o project.zip -d extracted
+          rm -f project.zip
+
+          shopt -s dotglob nullglob
+          items=(extracted/*)
+
+          if [ ${#items[@]} -eq 1 ] && [ -d "${items[0]}" ]; then
+            cp -a "${items[0]}"/. .
+          else
+            cp -a extracted/. .
+          fi
+
+          rm -rf extracted
+
+          # GitHub Actions 不允许当前机器人直接创建新的 workflow
+          # 所以先把 build-apk.yml 保存成普通 txt 文件
+          if [ -f .github/workflows/build-apk.yml ]; then
+            cp .github/workflows/build-apk.yml build-apk.yml.txt
+            rm .github/workflows/build-apk.yml
+          fi
+
+      - name: Commit files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git commit -m "Extract project files"
+          git push
