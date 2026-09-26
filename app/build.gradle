@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.bodhi.daily'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.bodhi.daily"
+        minSdk 24
+        targetSdk 35
+        versionCode 20202
+        versionName "2.0.2"
+    }
+}
