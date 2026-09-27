@@ -72,11 +72,12 @@ fun ReflectionScreen(viewModel: ReflectionViewModel = hiltViewModel()) {
                 Card(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text("上周分析报告", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        if (state.weeklyReport == null) {
+                        val weeklyReport = state.weeklyReport
+                        if (weeklyReport == null) {
                             Text("首次使用无上周分析报告", color = MaterialTheme.colorScheme.onSurfaceVariant)
                         } else {
-                            Text("${state.weeklyReport.weekStart} ～ ${state.weeklyReport.weekEnd}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Text(state.weeklyReport.content)
+                            Text("${weeklyReport.weekStart} ～ ${weeklyReport.weekEnd}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(weeklyReport.content)
                             Text("报告仅保留一周，每周一由新的上周分析报告自动替换。", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
                     }
