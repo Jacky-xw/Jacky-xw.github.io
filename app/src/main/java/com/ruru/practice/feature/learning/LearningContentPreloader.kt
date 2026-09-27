@@ -17,8 +17,9 @@ object LearningContentPreloader {
         File(context.filesDir, "learning_cache").apply { mkdirs() }
 
     suspend fun preload(context: Context) = withContext(Dispatchers.IO) {
-        if (loaded) return@withContext
         val prefs = context.getSharedPreferences(PREF, Context.MODE_PRIVATE)
+        if (prefs.getBoolean(KEY_READY, false)) return@withContext
+
         val resources = listOf(
             com.ruru.practice.R.raw.bodhisattva_overview,
             com.ruru.practice.R.raw.buddha_image,
@@ -38,11 +39,13 @@ object LearningContentPreloader {
                     }.also {
                         file.writeText(it, Charsets.UTF_8)
                     }
-                }            }
+                }
+            }
         }.isSuccess
 
         if (success) {
-            prefs.edit().putBoolean(KEY_READY, true).apply()        }
+            prefs.edit().putBoolean(KEY_READY, true).apply()
+        }
     }
 
     fun get(context: Context, resourceId: Int): String? {
