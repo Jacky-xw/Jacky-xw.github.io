@@ -1,3 +1,0 @@
-.fl{float: left;}
-.fr{float: right;}
-.clearfix::after{display: block;content: "";clear: both;}
